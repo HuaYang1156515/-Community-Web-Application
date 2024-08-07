@@ -1,14 +1,11 @@
-from app import create_app
+from app import create_app, db
+from app.models import User, Event
 
 app = create_app()
 
 if __name__ == '__main__':
     app.run(debug=True)
 
-#create database
-from app import db, create_app
-from app.models import User
-
-app = create_app()
-app.app_context().push()
-db.create_all()
+# Create database tables
+with app.app_context():
+    db.create_all()
