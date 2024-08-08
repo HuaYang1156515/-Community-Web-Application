@@ -1,6 +1,7 @@
-from flask import render_template
-from . import main
+from flask import Blueprint, render_template
 from app.models import Event
+
+main = Blueprint('main', __name__)
 
 @main.route('/')
 def index():
