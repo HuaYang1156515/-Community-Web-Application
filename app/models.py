@@ -1,5 +1,3 @@
-#define the Event model 
-from datetime import datetime
 from . import db
 
 class User(db.Model):
@@ -12,12 +10,9 @@ class User(db.Model):
 
 class Event(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    title = db.Column(db.String(200), nullable=False)
+    title = db.Column(db.String(100), nullable=False)
     description = db.Column(db.Text, nullable=False)
-    date = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
-    location = db.Column(db.String(200), nullable=False)
-    organizer_id = db.Column(db.Integer, db.ForeignKey('user.id'))
+    date = db.Column(db.DateTime, nullable=False)
 
     def __repr__(self):
         return f'<Event {self.title}>'
-
