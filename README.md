@@ -5,7 +5,8 @@ The project focuses on developing a web-based application designed to promote co
 
 Features
 A web application for managing community events, with roles for admins, users, and guests, each with specific access permissions.
-Applied hashing and vaildation
+Applied hashing and vaildation.
+Event management with dynamic templates.
 
 Structure
 community_event_planner/

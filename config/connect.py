@@ -1,17 +1,26 @@
-#used for local
+import mysql.connector
+from mysql.connector import Error
 
-dbuser = "root" # Your MySQL username - likely 'root'
-dbpass = "abcd1234" # ---- PUT YOUR PASSWORD HERE ----
+# Database connection details
+dbuser = "root"   
+dbpass = "abcd1234"   
 dbhost = "localhost" 
 dbport = "3306"
 dbname = "693web"
 
-#used for pythonanywhere
-"""
-dbuser = "robin777" # Your MySQL username - likely 'root'
-dbpass = "Lifestyle" # ---- PUT YOUR PASSWORD HERE ----
-dbhost = "robin777.mysql.pythonanywhere-services.com" 
-dbport = "3306"
-dbname = "robin777$integrationDB"
-"""
-
+def get_connection():
+    
+    try:
+        connection = mysql.connector.connect(
+            host=dbhost,
+            user=dbuser,
+            password=dbpass,
+            database=dbname,
+            port=dbport
+        )
+        if connection.is_connected():
+            print("Connected to the database")
+            return connection
+    except Error as e:
+        print(f"Error while connecting to MySQL: {e}")
+        return None
