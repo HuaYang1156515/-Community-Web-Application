@@ -49,4 +49,4 @@ community_event_planner/
       .gitignore
       app.py
       config.py
-└     requirements.txt
+      requirements.txt
