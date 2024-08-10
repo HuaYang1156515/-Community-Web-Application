@@ -7,14 +7,17 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
 </head>
 <body>
-    <header>
-        <h1>Community Event</h1>
-    </header>
-    <main>
+    <nav>
+        <a href="{{ url_for('home') }}">Home</a>
+        {% if current_user.is_authenticated %}
+            <a href="{{ url_for('profile') }}">Profile</a>
+            <a href="{{ url_for('logout') }}">Logout</a>
+        {% else %}
+            <a href="{{ url_for('login') }}">Login</a>
+        {% endif %}
+    </nav>
+    <div class="content">
         {% block content %}{% endblock %}
-    </main>
-    <footer>
-        <p>&copy; 2024 Community Event</p>
-    </footer>
+    </div>
 </body>
 </html>
