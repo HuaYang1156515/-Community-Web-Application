@@ -9,7 +9,7 @@ class User(UserMixin, db.Model):
     name = db.Column(db.String(50), nullable=False)
     login = db.Column(db.String(255), nullable=False, unique=True)
     password = db.Column(db.String(255), nullable=False)
-    login_time = db.Column(db.DateTime, nullable=True)
+    
     status = db.Column(db.String(2), default='1', nullable=False)
     pic = db.Column(db.String(255), nullable=True)
     desc = db.Column(db.String(255), nullable=True)
