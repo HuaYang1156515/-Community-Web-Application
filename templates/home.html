@@ -3,17 +3,15 @@
 {% block title %}Home - Community Event Planner{% endblock %}
 
 {% block content %}
-    <h1>Welcome to Community Web Application</h1>
-    <h2>Events</h2>
-    <ul>
+    <h1 class="mb-4">Welcome to Community Web Application</h1>
+    <h2 class="mb-3">Events</h2>
+    <div class="list-group">
         {% for event in events %}
-            <li>
-                <h3>{{ event.name }}</h3>
-                <p>{{ event.description }}</p>
-                <p>Date: {{ event.date }}</p>
-                <p>Location: {{ event.location }}</p>
-                <a href="{{ url_for('event_detail', event_id=event.id) }}">View Details</a>
-            </li>
+            <a href="{{ url_for('event_detail', event_id=event.id) }}" class="list-group-item list-group-item-action">
+                <h5 class="mb-1">{{ event.name }}</h5>
+                <p class="mb-1">{{ event.description }}</p>
+                <small>{{ event.date }} - {{ event.location }}</small>
+            </a>
         {% endfor %}
-    </ul>
+    </div>
 {% endblock %}
