@@ -1,9 +1,9 @@
-from functools import wraps
+"""from functools import wraps
 from flask import abort, render_template
 from flask_login import current_user
 
 def admin_required(func):
-    """Decorator to restrict access to admin users only."""
+     
     @wraps(func)
     def wrapper(*args, **kwargs):
         if not current_user.is_authenticated or current_user.role != 'admin':
@@ -12,7 +12,7 @@ def admin_required(func):
     return wrapper
 
 def user_required(func):
-    """Decorator to restrict access to registered users only."""
+    
     @wraps(func)
     def wrapper(*args, **kwargs):
         if not current_user.is_authenticated or current_user.role != 'user':
@@ -21,7 +21,7 @@ def user_required(func):
     return wrapper
 
 def role_required(roles):
-    """Decorator to restrict access to specific roles."""
+    
     def decorator(func):
         @wraps(func)
         def wrapper(*args, **kwargs):
@@ -30,3 +30,4 @@ def role_required(roles):
             return func(*args, **kwargs)
         return wrapper
     return decorator
+"""
