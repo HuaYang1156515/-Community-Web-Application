@@ -23,30 +23,30 @@ The project follows the following directory structure:
 - **README.md:** This file, providing an overview of the 
 
 - community_event_planner/
-- common/
+  - common/
       - hashing.py
       - validation.py
-- config/
+  - config/
       - connect.py
       - setting.py
-- controllers/
+  - controllers/
       - guest_controller.py
       - user_controller.py
       - admin_controller.py
-- models/
+  - models/
       - user.py
       - event.py
       - booking.py
-- services/
+  - services/
       - app_service.py
       - user_service.py
       - event_service.py
       - admin_service.py
-- static/
+  - static/
       - css/
       - js/
       - images/
-- templates/
+  - templates/
       - base.html
       - home.html
       - login.html
@@ -57,10 +57,10 @@ The project follows the following directory structure:
       - edit_event.html
       - user_profile.html
       - admin_dashboard.html
-- tests/
+  - tests/
       - test_user.py
       - test_event.py
-- .gitignore
-- app.py
-- config.py
-- requirements.txt
+  - .gitignore
+  - app.py
+  - config.py
+  - requirements.txt
