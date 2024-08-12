@@ -1,14 +1,27 @@
-Community Web Application
+#  Community Web Application
 
-Overview
+# Overview
 The project focuses on developing a web-based application designed to promote community service and engagement by organizing and managing events. The application will serve the local community and allow users to seamlessly create, view and register for local events.
 
-Features
-A web application for managing community events, with roles for admins, users, and guests, each with specific access permissions.
-Applied hashing and vaildation.
-Event management with dynamic templates.
+## Features
+- A web application for managing community events, with roles for admins, users, and guests, each with specific access permissions.
+- Applied hashing and vaildation.
+- Event management with dynamic templates.
 
-Structure
+## Project Structure
+
+The project follows the following directory structure:
+
+- **/static:** Contains static files such as CSS, JS, and images.
+- **/templates:** Holds HTML templates for rendering views.
+- **app.py:** The main entry point for the Flask application.
+- **/config:** Configuration files and settings.
+- **/services:** Modules for various services, including user, workshop, and payment services.
+- **/controllers:** Contains controllers for different functionalities like authentication and managing different user roles.
+- **/common:** Common functionalities shared across the application, such as hashing functions.
+- **requirements.txt:** Lists the required Python packages.
+- **README.md:** This file, providing an overview of the 
+
 community_event_planner/
 common/
       hashing.py
