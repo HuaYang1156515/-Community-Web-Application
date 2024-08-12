@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block content %}
+    <h2>Edit Profile</h2>
+    <form method="POST">
+        <label for="name">Name:</label>
+        <input type="text" name="name" id="name" value="{{ current_user.name }}" required>
+        <label for="pic">Profile Picture URL:</label>
+        <input type="text" name="pic" id="pic" value="{{ current_user.pic }}">
+        <label for="desc">Description:</label>
+        <textarea name="desc" id="desc">{{ current_user.desc }}</textarea>
+        <button type="submit">Save Changes</button>
+    </form>
+{% endblock %}
