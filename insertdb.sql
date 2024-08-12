@@ -1,8 +1,8 @@
 -- Insert users (including admin and regular users)
 INSERT INTO users (name, login, password, role, status, pic, description, created_at) VALUES
 ('Admin User', 'admin', 'admin', 'admin', '0', NULL, 'Administrator account', NOW()),
-('John Doe', 'john_doe', '1558303a44eb61bf743bfaba62b72d555c82f2c7', 'user', '0', NULL, 'Regular user', NOW()),
-('Jane Smith', 'jane_smith', '054581f81f87351dc64e15b38bffa079d263cb2a', 'user', '0', NULL, 'Regular user', NOW());
+('John Doe', 'john_doe', 'john1234', 'user', '0', NULL, 'Regular user', NOW()),
+('Jane Smith', 'jane_smith', 'jane1234', 'user', '0', NULL, 'Regular user', NOW());
 
 -- Insert categories
 INSERT INTO categories (name, status) VALUES

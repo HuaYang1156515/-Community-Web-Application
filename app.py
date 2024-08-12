@@ -20,7 +20,7 @@ app.register_blueprint(guest_bp)
 
 from models.user import User
 from models.event import Event
-from models.category import Category  # Import the Category model here
+from models.category import Category   
 
 @login_manager.user_loader
 def load_user(user_id):
@@ -31,10 +31,11 @@ def home():
     events = Event.query.all()  # Fetch all events to display on the homepage
     return render_template('home.html', events=events)
 
+"""
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     if request.method == 'POST':
-        # Handle login logic here
+         
         username = request.form['username']
         password = request.form['password']
         user = User.query.filter_by(login=username).first()
@@ -44,6 +45,21 @@ def login():
         else:
             flash('Invalid credentials')
     return render_template('login.html')
+"""
+
+@app.route('/login', methods=['GET', 'POST'])
+def login():
+    if request.method == 'POST':
+        username = request.form['username']
+        password = request.form['password']
+        user = User.query.filter_by(login=username).first()
+        if user and user.password == password:  # Directly compare the plain text password
+            login_user(user)
+            return redirect(url_for('home'))
+        else:
+            flash('Invalid credentials')
+    return render_template('login.html')
+
 
 @app.route('/logout')
 @login_required
