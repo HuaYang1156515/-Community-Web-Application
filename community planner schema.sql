@@ -28,9 +28,13 @@ CREATE TABLE events (
     description TEXT,
     location VARCHAR(255) NOT NULL,
     date DATETIME NOT NULL,
+    user_id INT NULL,  -- Column for user ID
+    admin_id INT NULL,  -- Column for admin ID
     status CHAR(2) DEFAULT '0',  -- 0: active, 1: canceled
     created_by INT NOT NULL,
     category_id INT,
+    FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE SET NULL,
+    FOREIGN KEY (admin_id) REFERENCES users(id) ON DELETE SET NULL,
     FOREIGN KEY (created_by) REFERENCES users(id) ON DELETE CASCADE,
     FOREIGN KEY (category_id) REFERENCES categories(id) ON DELETE SET NULL
 );

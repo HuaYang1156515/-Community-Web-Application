@@ -92,6 +92,7 @@ def register():
 @app.route('/')
 def home():
     events = Event.query.all()  # Fetch all events to display on the homepage
+    print(events)  # Add this line to check what's being returned
     return render_template('home.html', events=events)
 
 
@@ -175,6 +176,29 @@ def delete_event(event_id):
     db.session.commit()
     flash('Event deleted successfully!')
     return redirect(url_for('admin_dashboard'))
+
+from config.connect import get_connection
+
+@app.route('/test_db')
+def test_db():
+    connection = get_connection()
+    if connection:
+        cursor = connection.cursor()
+        cursor.execute("SELECT * FROM events")
+        events = cursor.fetchall()
+        print(events)
+        cursor.close()
+        connection.close()
+    return "Check the console for event data"
+
+@app.route('/test_db_sqlalchemy')
+def test_db_sqlalchemy():
+    events = Event.query.all()
+    print(events)
+    return "Check the console for event data using SQLAlchemy"
+
+
+
 
 if __name__ == "__main__":
     app.run(host='127.0.0.1', port=5000, debug=True)
