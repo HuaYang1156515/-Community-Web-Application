@@ -18,6 +18,7 @@ The project follows the following directory structure:
 - **/config:** Configuration files and settings.
 - **/services:** Modules for various services, including user, workshop, and payment services.
 - **/controllers:** Contains controllers for different functionalities like authentication and managing different user roles.
+- **/tests:** Unit tests for different components of the application.
 - **/common:** Common functionalities shared across the application, such as hashing functions.
 - **requirements.txt:** Lists the required Python packages.
 - **README.md:** This file, providing an overview of the 
@@ -37,8 +38,9 @@ The project follows the following directory structure:
       - user.py
       - event.py
       - booking.py
+      - category.py
   - services/
-      - app_service.py
+      - _init_.py
       - user_service.py
       - event_service.py
       - admin_service.py

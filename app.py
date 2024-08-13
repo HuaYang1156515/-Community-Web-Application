@@ -72,14 +72,15 @@ def register():
     if request.method == 'POST':
         username = request.form['username']
         password = request.form['password']
-        role = request.form['role']  # Assuming role selection during registration
+        role = request.form['role']  #  Handle role from dropdown
         existing_user = User.query.filter_by(login=username).first()
         if existing_user:
             flash('Username already exists')
             return redirect(url_for('register'))
 
         user = User(name=username, login=username, role=role)
-        user.set_password(password)  # Hash and set the password
+        user.password = password  # Directly store the plain text password for now
+        #user.set_password(password)  # Hash and set the password
         db.session.add(user)
         db.session.commit()
         flash('Registration successful! Please login.')
