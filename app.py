@@ -72,7 +72,13 @@ def register():
     if request.method == 'POST':
         username = request.form['username']
         password = request.form['password']
+        confirm_password = request.form['confirm_password']
         role = request.form['role']  #  Handle role from dropdown
+        
+        if password != confirm_password:
+            flash('Passwords do not match.')
+            return redirect(url_for('register'))
+        
         existing_user = User.query.filter_by(login=username).first()
         if existing_user:
             flash('Username already exists')
