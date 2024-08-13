@@ -108,6 +108,13 @@ def profile():
         return redirect(url_for('profile'))
     return render_template('profile.html')
 
+@app.route('/event_dashboard')
+def event_dashboard():
+    events = Event.query.all()
+    return render_template('event_dashboard.html', events=events)
+
+
+
 @app.route('/admin/dashboard')
 @login_required
 def admin_dashboard():
