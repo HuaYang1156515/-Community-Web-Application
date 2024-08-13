@@ -26,10 +26,6 @@ from models.category import Category
 def load_user(user_id):
     return User.query.get(int(user_id))
 
-@app.route('/')
-def home():
-    events = Event.query.all()  # Fetch all events to display on the homepage
-    return render_template('home.html', events=events)
 
 """
 @app.route('/login', methods=['GET', 'POST'])
@@ -93,6 +89,12 @@ def register():
         return redirect(url_for('login'))
     return render_template('register.html')
 
+@app.route('/')
+def home():
+    events = Event.query.all()  # Fetch all events to display on the homepage
+    return render_template('home.html', events=events)
+
+
 @app.route('/profile', methods=['GET', 'POST'])
 @login_required
 def profile():
@@ -105,11 +107,22 @@ def profile():
         return redirect(url_for('profile'))
     return render_template('profile.html')
 
+@app.route('/admin/dashboard')
+@login_required
+def admin_dashboard():
+    if current_user.role != 'admin':
+        flash('You are not authorized to view this page.')
+        return redirect(url_for('home'))
+    events = Event.query.all()
+    return render_template('admin_dashboard.html', events=events)
+
+#event_detail
 @app.route('/event/<int:event_id>')
 def event_detail(event_id):
     event = Event.query.get_or_404(event_id)
     return render_template('event_detail.html', event=event)
 
+#create event
 @app.route('/event/create', methods=['GET', 'POST'])
 @login_required
 def create_event():
@@ -129,6 +142,39 @@ def create_event():
         return redirect(url_for('home'))
     categories = Category.query.all()
     return render_template('create_event.html', categories=categories)
+
+#edit event
+@app.route('/event/edit/<int:event_id>', methods=['GET', 'POST'])
+@login_required
+def edit_event(event_id):
+    event = Event.query.get_or_404(event_id)
+    if current_user.role != 'admin':
+        flash('You are not authorized to edit this event.')
+        return redirect(url_for('home'))
+    if request.method == 'POST':
+        event.name = request.form['name']
+        event.description = request.form['description']
+        event.location = request.form['location']
+        event.date = request.form['date']
+        event.category_id = request.form['category_id']
+        db.session.commit()
+        flash('Event updated successfully!')
+        return redirect(url_for('admin_dashboard'))
+    categories = Category.query.all()
+    return render_template('edit_event.html', event=event, categories=categories)
+
+# Delete event route
+@app.route('/event/delete/<int:event_id>')
+@login_required
+def delete_event(event_id):
+    event = Event.query.get_or_404(event_id)
+    if current_user.role != 'admin':
+        flash('You are not authorized to delete this event.')
+        return redirect(url_for('home'))
+    db.session.delete(event)
+    db.session.commit()
+    flash('Event deleted successfully!')
+    return redirect(url_for('admin_dashboard'))
 
 if __name__ == "__main__":
     app.run(host='127.0.0.1', port=5000, debug=True)
