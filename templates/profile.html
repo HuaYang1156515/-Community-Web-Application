@@ -1,13 +1,22 @@
-{% extends "base.html" %}
+{% extends 'base.html' %}
+
+{% block title %}Profile - Community Event Planner{% endblock %}
+
 {% block content %}
-    <h2>Edit Profile</h2>
+    <h1 class="mb-4">Edit Profile</h1>
     <form method="POST">
-        <label for="name">Name:</label>
-        <input type="text" name="name" id="name" value="{{ current_user.name }}" required>
-        <label for="pic">Profile Picture URL:</label>
-        <input type="text" name="pic" id="pic" value="{{ current_user.pic }}">
-        <label for="desc">Description:</label>
-        <textarea name="desc" id="desc">{{ current_user.desc }}</textarea>
-        <button type="submit">Save Changes</button>
+        <div class="mb-3">
+            <label for="name" class="form-label">Name:</label>
+            <input type="text" id="name" name="name" value="{{ current_user.name }}" class="form-control" required>
+        </div>
+        <div class="mb-3">
+            <label for="pic" class="form-label">Profile Picture URL:</label>
+            <input type="text" id="pic" name="pic" value="{{ current_user.pic }}" class="form-control">
+        </div>
+        <div class="mb-3">
+            <label for="desc" class="form-label">Description:</label>
+            <textarea id="desc" name="desc" class="form-control">{{ current_user.desc }}</textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Save Changes</button>
     </form>
 {% endblock %}
