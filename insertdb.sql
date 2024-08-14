@@ -11,19 +11,7 @@ INSERT INTO categories (name, status) VALUES
 ('Seminar', '0');
 
 -- Insert events
-INSERT INTO events (name, description, location, date, status, created_by, category_id, user_id, admin_id) VALUES
-('Beach Party', 'Join us for a fun beach party!', 'Beach', '2024-08-15 18:00:00', '0', 2, 1, 2, 1),
-('Python Workshop', 'Learn Python basics in this workshop.', 'Library', '2024-08-20 10:00:00', '0', 3, 2, 3, 1),
-('Business Seminar', 'Networking and business development seminar.', 'Conference Hall', '2024-09-01 09:00:00', '0', 2, 3, 2, 1);
-
--- Insert event registrations
-INSERT INTO event_registrations (event_id, user_id, status, created_at) VALUES
-(1, 2, '0', NOW()),
-(2, 3, '0', NOW()),
-(3, 2, '0', NOW());
-
--- Insert favorites
-INSERT INTO favorites (user_id, event_id, created_at) VALUES
-(2, 1, NOW()),
-(3, 2, NOW()),
-(2, 3, NOW());
+INSERT INTO events (name, description, location, date, status, created_by, category_id) VALUES
+('Beach Party', 'Join us for a fun beach party!', 'Beach', '2024-08-15 18:00:00', '0', 2, 1),
+('Python Workshop', 'Learn Python basics in this workshop.', 'Library', '2024-08-20 10:00:00', '0', 3, 2),
+('Business Seminar', 'Networking and business development seminar.', 'Conference Hall', '2024-09-01 09:00:00', '0', 2, 3);
