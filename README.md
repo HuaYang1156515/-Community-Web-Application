@@ -21,7 +21,7 @@ The project follows the following directory structure:
 - **/tests:** Unit tests for different components of the application.
 - **/common:** Common functionalities shared across the application, such as hashing functions.
 - **requirements.txt:** Lists the required Python packages.
-- **README.md:** This file, providing an overview of the 
+- **README.md:** This file, providing an overview of the project.
 
 - community_event_planner/
   - common/
