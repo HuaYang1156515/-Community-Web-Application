@@ -11,16 +11,21 @@ login_manager = LoginManager(app)
 login_manager.login_view = 'login'
 
 from controllers.user_controller import user_bp
+from controllers.event_controller import event_bp
 from controllers.admin_controller import admin_bp
-from controllers.guest_controller import guest_bp
+from controllers.category_controller import category_bp
 
 app.register_blueprint(user_bp, url_prefix='/user')
+app.register_blueprint(event_bp, url_prefix='/event')
 app.register_blueprint(admin_bp, url_prefix='/admin')
-app.register_blueprint(guest_bp)
+app.register_blueprint(category_bp, url_prefix='/category')
 
-from models.user import User
-from models.event import Event
-from models.category import Category   
+# Import models
+from models.user_model import User
+from models.event_model import Event
+from models.category_model import Category
+from models.event_registration_model import EventRegistration
+from models.favorite_model import Favorite  
 
 @login_manager.user_loader
 def load_user(user_id):
