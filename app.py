@@ -31,23 +31,6 @@ from models.favorite_model import Favorite
 def load_user(user_id):
     return User.query.get(int(user_id))
 
-
-"""
-@app.route('/login', methods=['GET', 'POST'])
-def login():
-    if request.method == 'POST':
-         
-        username = request.form['username']
-        password = request.form['password']
-        user = User.query.filter_by(login=username).first()
-        if user and user.check_password(password):  # Assuming you have a check_password method
-            login_user(user)
-            return redirect(url_for('home'))
-        else:
-            flash('Invalid credentials')
-    return render_template('login.html')
-"""
-
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     if request.method == 'POST':
@@ -188,27 +171,6 @@ def delete_event(event_id):
     db.session.commit()
     flash('Event deleted successfully!')
     return redirect(url_for('admin_dashboard'))
-
-from config.connect import get_connection
-
-@app.route('/test_db')
-def test_db():
-    connection = get_connection()
-    if connection:
-        cursor = connection.cursor()
-        cursor.execute("SELECT * FROM events")
-        events = cursor.fetchall()
-        print(events)
-        cursor.close()
-        connection.close()
-    return "Check the console for event data"
-
-@app.route('/test_db_sqlalchemy')
-def test_db_sqlalchemy():
-    events = Event.query.all()
-    print(events)
-    return "Check the console for event data using SQLAlchemy"
-
 
 
 
