@@ -11,10 +11,13 @@
             <p><strong>Location:</strong> {{ event.location }}</p>
 
             {% if current_user.is_authenticated %}
-                <a href="{{ url_for('event_bp.register_event', event_id=event.id) }}" class="btn btn-primary">
-                    Register for this Event
-                </a>
+                <!-- Form for registering for the event -->
+                <form action="{{ url_for('register_event', event_id=event.id) }}" method="POST">
+                    <!-- Button to submit the form -->
+                    <button type="submit" class="btn btn-primary">Register for this Event</button>
+                </form>
             {% else %}
+                <!-- Link to the login page if the user is not logged in -->
                 <a href="{{ url_for('login') }}" class="btn btn-secondary">
                     Login to Register
                 </a>
@@ -22,5 +25,3 @@
         </div>
     </div>
 {% endblock %}
-
-

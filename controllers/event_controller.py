@@ -67,4 +67,3 @@ def register_event(event_id):
         return redirect(url_for('event_detail', event_id=event.id))
     flash('Event not found!')
     return redirect(url_for('home'))
-
