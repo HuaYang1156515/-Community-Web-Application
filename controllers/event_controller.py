@@ -1,4 +1,4 @@
-from flask import Blueprint, request, jsonify, redirect, url_for, flash
+from flask import Blueprint, render_template, request, jsonify, redirect, url_for, flash
 from flask_login import login_required, current_user
 from services.event_service import (
     get_event_by_id, create_event, update_event, delete_event, get_all_events
@@ -55,6 +55,13 @@ def delete_event_info(event_id):
     if deleted_event:
         return jsonify({"message": "Event deleted successfully"}), 200
     return jsonify({"error": "Event not found"}), 404
+
+@event_bp.route('/<int:event_id>')
+def event_detail(event_id):
+    event = Event.query.get_or_404(event_id)
+    return render_template('event_detail.html', event=event)
+
+
 
 
 @event_bp.route('/event/<int:event_id>/register', methods=['POST'])
