@@ -3,6 +3,7 @@ from flask_login import login_required, current_user
 from services.event_service import (
     get_event_by_id, create_event, update_event, delete_event, get_all_events
 )
+from models.event_model import Event  
 from app import db
 from models.event_registration_model import EventRegistration
 
@@ -55,15 +56,16 @@ def delete_event_info(event_id):
         return jsonify({"message": "Event deleted successfully"}), 200
     return jsonify({"error": "Event not found"}), 404
 
+
 @event_bp.route('/event/<int:event_id>/register', methods=['POST'])
 @login_required 
 def register_event(event_id):
-    event = Event.query.get_or_404(event_id)
+    event = Event.query.get_or_404(event_id) 
     if event:
         registration = EventRegistration(user_id=current_user.id, event_id=event.id)
         db.session.add(registration)
         db.session.commit()
         flash('Successfully registered for the event!')
-        return redirect(url_for('event_detail', event_id=event.id))
+        return redirect(url_for('event_bp.event_detail', event_id=event.id))
     flash('Event not found!')
     return redirect(url_for('home'))

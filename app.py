@@ -10,6 +10,7 @@ db = SQLAlchemy(app)
 login_manager = LoginManager(app)
 login_manager.login_view = 'login'
 
+# Import and Register Blueprints
 from controllers.user_controller import user_bp
 from controllers.event_controller import event_bp
 from controllers.admin_controller import admin_bp
@@ -44,7 +45,6 @@ def login():
             flash('Invalid credentials')
     return render_template('login.html')
 
-
 @app.route('/logout')
 @login_required
 def logout():
@@ -57,7 +57,7 @@ def register():
         username = request.form['username']
         password = request.form['password']
         confirm_password = request.form['confirm_password']
-        role = request.form['role']  #  Handle role from dropdown
+        role = request.form['role']  # Handle role from dropdown
         
         if password != confirm_password:
             flash('Passwords do not match.')
@@ -70,7 +70,6 @@ def register():
 
         user = User(name=username, login=username, role=role)
         user.password = password  # Directly store the plain text password for now
-        #user.set_password(password)  # Hash and set the password
         db.session.add(user)
         db.session.commit()
         flash('Registration successful! Please login.')
@@ -80,9 +79,7 @@ def register():
 @app.route('/')
 def home():
     events = Event.query.all()  # Fetch all events to display on the homepage
-    print(events)  # Add this line to check what's being returned
     return render_template('home.html', events=events)
-
 
 @app.route('/profile', methods=['GET', 'POST'])
 @login_required
@@ -101,8 +98,6 @@ def event_dashboard():
     events = Event.query.all()
     return render_template('event_dashboard.html', events=events)
 
-
-
 @app.route('/admin/dashboard')
 @login_required
 def admin_dashboard():
@@ -112,13 +107,13 @@ def admin_dashboard():
     events = Event.query.all()
     return render_template('admin_dashboard.html', events=events)
 
-#event_detail
+# Event detail route
 @app.route('/event/<int:event_id>')
 def event_detail(event_id):
     event = Event.query.get_or_404(event_id)
     return render_template('event_detail.html', event=event)
 
-#create event
+# Create event route
 @app.route('/event/create', methods=['GET', 'POST'])
 @login_required
 def create_event():
@@ -139,7 +134,7 @@ def create_event():
     categories = Category.query.all()
     return render_template('create_event.html', categories=categories)
 
-#edit event
+# Edit event route
 @app.route('/event/edit/<int:event_id>', methods=['GET', 'POST'])
 @login_required
 def edit_event(event_id):
@@ -171,8 +166,6 @@ def delete_event(event_id):
     db.session.commit()
     flash('Event deleted successfully!')
     return redirect(url_for('admin_dashboard'))
-
-
 
 if __name__ == "__main__":
     app.run(host='127.0.0.1', port=5000, debug=True)

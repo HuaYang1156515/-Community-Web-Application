@@ -6,7 +6,7 @@
     <h1 class="mb-4">All Events</h1>
     <div class="list-group">
         {% for event in events %}
-            <a href="{{ url_for('event_detail', event_id=event.id) }}" class="list-group-item list-group-item-action">
+            <a href="{{ url_for('event_bp.event_detail', event_id=event.id) }}" class="list-group-item list-group-item-action">
                 <h5 class="mb-1">{{ event.name }}</h5>
                 <p class="mb-1">{{ event.description }}</p>
                 <small>{{ event.date }} - {{ event.location }}</small>

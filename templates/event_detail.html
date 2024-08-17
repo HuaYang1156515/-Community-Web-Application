@@ -12,7 +12,7 @@
 
             {% if current_user.is_authenticated %}
                 <!-- Form for registering for the event -->
-                <form action="{{ url_for('register_event', event_id=event.id) }}" method="POST">
+                <form action="{{ url_for('event_bp.register_event', event_id=event.id) }}" method="POST">
                     <!-- Button to submit the form -->
                     <button type="submit" class="btn btn-primary">Register for this Event</button>
                 </form>
