@@ -1,5 +1,7 @@
 from models.user_model import User
 from app import db
+from services import DbText
+from config import setting
 
 def get_admin_by_id(admin_id):
     return User.query.filter_by(id=admin_id, role='admin').first()
@@ -30,3 +32,18 @@ def delete_admin(admin_id):
         db.session.delete(admin)
         db.session.commit()
     return admin
+
+
+def query_workshop_cal():
+    sql = f"""
+    SELECT
+        id AS id,
+        name,
+        CONCAT( '{setting.url}/event/view_event/', id) AS url,
+        UNIX_TIMESTAMP(DATE_SUB(date, INTERVAL 12 HOUR)) * 1000 AS start,
+        UNIX_TIMESTAMP(DATE_SUB(date_end, INTERVAL 12 HOUR)) * 1000 AS end
+    FROM
+        events
+    """
+    return DbText.query_all(sql)
+    
