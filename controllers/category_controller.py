@@ -20,13 +20,19 @@ def create_category():
 @category_bp.route('/edit_category/<int:id>', methods=['GET','POST'])
 def edit_category(id):
     id = id
-   
-    return 
+    category = category_service.get_category_by_id(id)
+    if request.method == 'POST':
+        name = request.form['name']
+        status = request.form['status']
+        category_service.update_category(id,name,status)
+        flash("edit category successful")
+        return redirect(url_for('category.category_management'))
+    return render_template("admin/category/edit_category.html",category=category)
 
 @category_bp.route('/delete_category', methods=['GET','PUT'])
 def delete_category():
     data = request.json  # 获取从前端传递的数据
     category_id = data.get('id')  # 提取类别ID
     category_service.delete_category(id)
-    return
+    return jsonify({'success': True}), 200
 
