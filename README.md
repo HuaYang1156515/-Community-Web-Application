@@ -28,6 +28,7 @@ The project follows the following directory structure:
       - hashing.py
       - validation.py
   - config/
+      - _init_.py
       - connect.py
       - setting.py
   - controllers/
