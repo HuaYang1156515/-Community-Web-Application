@@ -35,20 +35,28 @@ The project follows the following directory structure:
       - user_controller.py
       - admin_controller.py
   - models/
-      - user.py
-      - event.py
-      - booking.py
-      - category.py
+      - category_model.py
+      - event_model.py
+      - event_registration_model.py
+      - favorite_model.py
+      - user_model.py
   - services/
       - _init_.py
       - user_service.py
-      - event_service.py
+      - app_service.py
       - admin_service.py
+      - category_servise.py
+      - DbText.py
+      - event_service.py
   - static/
       - css/
+      - icomoon
+      - tmpls
       - js/
       - images/
   - templates/
+      - admin/
+      - front/
       - base.html
       - home.html
       - login.html
