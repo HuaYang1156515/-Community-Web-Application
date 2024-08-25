@@ -55,14 +55,18 @@ The project follows the following directory structure:
       - register.html
       - event_list.html
       - event_detail.html
+      - event_dashboard.html
       - create_event.html
       - edit_event.html
-      - user_profile.html
+      - profile.html
       - admin_dashboard.html
   - tests/
       - test_user.py
       - test_event.py
   - .gitignore
   - app.py
+  - community_planner_schema.sql
+  - insertdb.sql
   - config.py
+  - readme.md
   - requirements.txt
