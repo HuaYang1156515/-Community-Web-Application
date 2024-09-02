@@ -57,7 +57,3 @@ CREATE TABLE favorites (
     FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE,
     FOREIGN KEY (event_id) REFERENCES events(id) ON DELETE CASCADE
 );
-
-ALTER TABLE `community_event_planner`.`events` 
-ADD COLUMN `img` VARCHAR(200) NULL AFTER `category_id`,
-ADD COLUMN `intro` VARCHAR(200) NULL AFTER `img`;
