@@ -25,11 +25,30 @@ def get_connection():
         print(f"Error while connecting to MySQL: {e}")
         return None
 """
+
+
+
+
+# Updated Database connection details
 db_config = {
     'user': 'HuaYang',  # Your MySQL username
     'password': 'abcd1234',  # Your MySQL password
     'host': 'HuaYang.mysql.pythonanywhere-services.com',  # Hostname for MySQL
     'database': 'HuaYang$HuaYang777',  # Your new database name
+    'port': 3306  # MySQL port, should be an integer, not a string
 }
 
-connection = mysql.connector.connect(**db_config)
+def get_connection():
+    try:
+        connection = mysql.connector.connect(**db_config)
+        if connection.is_connected():
+            print("Connected to the database")
+            return connection
+    except Error as e:
+        print(f"Error while connecting to MySQL: {e}")
+        return None
+
+# Test the connection
+conn = get_connection()
+if conn:
+    conn.close()  # Remember to close the connection when done
