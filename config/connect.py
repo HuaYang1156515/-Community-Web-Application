@@ -1,6 +1,6 @@
 import mysql.connector
 from mysql.connector import Error
-
+"""
 # Database connection details
 dbuser = "root"   
 dbpass = "abcd1234"   
@@ -24,3 +24,12 @@ def get_connection():
     except Error as e:
         print(f"Error while connecting to MySQL: {e}")
         return None
+"""
+db_config = {
+    'user': 'HuaYang',  # Your MySQL username
+    'password': 'abcd1234',  # Your MySQL password
+    'host': 'HuaYang.mysql.pythonanywhere-services.com',  # Hostname for MySQL
+    'database': 'HuaYang$HuaYang777',  # Your new database name
+}
+
+connection = mysql.connector.connect(**db_config)
