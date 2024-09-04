@@ -28,8 +28,7 @@ def get_connection():
 
 
 
-
-# Updated Database connection details
+ 
 db_config = {
     'user': 'HuaYang',  # Your MySQL username
     'password': 'abcd1234',  # Your MySQL password
