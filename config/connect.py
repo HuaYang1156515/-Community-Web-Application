@@ -16,3 +16,21 @@ dbpass = 'Passwd1234abcd'
 dbhost = 'HuaYang.mysql.pythonanywhere-services.com'  
 dbport = '3306'  
 dbname = 'HuaYang$HuaYang777'   
+ 
+  
+def get_connection():
+    
+    try:
+        connection = mysql.connector.connect(
+            host=dbhost,
+            user=dbuser,
+            password=dbpass,
+            database=dbname,
+            port=dbport
+        )
+        if connection.is_connected():
+            print("Connected to the database")
+            return connection
+    except Error as e:
+        print(f"Error while connecting to MySQL: {e}")
+        return None
