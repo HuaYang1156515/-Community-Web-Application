@@ -12,7 +12,7 @@ dbname = "community_event_planner"
 
 
 dbuser = 'HuaYang'  # Your PythonAnywhere username
-dbpass = 'your_password'  # Your MySQL database password
+dbpass = 'abcd1234'  # Your MySQL database password
 dbhost = 'HuaYang.mysql.pythonanywhere-services.com'  # Your MySQL host
 dbport = '3306'  # Default MySQL port
 dbname = 'HuaYang$HuaYang777'  # Replace with your chosen database name
