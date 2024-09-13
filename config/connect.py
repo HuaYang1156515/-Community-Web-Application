@@ -6,7 +6,7 @@ dbuser = "HuaYang"
 dbpass = "abcd1234!"   
 dbhost = "HuaYang.mysql.pythonanywhere-services.com" 
 dbport = "3306"
-dbname = "HuaYang$community-planner"
+dbname = "HuaYang$HuaYang777"
 
 def get_connection():
     
