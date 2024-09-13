@@ -8,6 +8,15 @@ dbhost = "HuaYang.mysql.pythonanywhere-services.com"
 dbport = "3306"
 dbname = "HuaYang$HuaYang777"
 
+
+"""
+dbuser = "root"   
+dbpass = "abcd1234"   
+dbhost = "localhost" 
+dbport = "3306"
+dbname = "community_planner_schema"
+"""
+
 def get_connection():
     
     try:
