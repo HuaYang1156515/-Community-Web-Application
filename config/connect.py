@@ -1,12 +1,12 @@
 import mysql.connector
 from mysql.connector import Error
-
+ 
 # Database connection details
-dbuser = "root"   
-dbpass = "abcd1234"   
-dbhost = "localhost" 
+dbuser = "HuaYang"   
+dbpass = "abcd1234!"   
+dbhost = "HuaYang.mysql.pythonanywhere-services.com" 
 dbport = "3306"
-dbname = "community_event_planner"
+dbname = "community_event_plannerPA"
 
 def get_connection():
     
