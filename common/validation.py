@@ -1,3 +1,4 @@
+"""
 from functools import wraps
 from flask import abort, render_template
 from flask_login import current_user
@@ -30,3 +31,5 @@ def role_required(roles):
             return func(*args, **kwargs)
         return wrapper
     return decorator
+
+    """
