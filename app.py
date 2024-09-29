@@ -114,13 +114,11 @@ def profile():
         return redirect(url_for('home'))
     return render_template("front/profile.html",user=user)
 
-"""
 @app.route('/event_dashboard')
 def event_dashboard():
     events = app_service.get_all_events()
     return render_template('event_dashboard.html', events=events)
-"""
-    
+
 @app.route('/contact')
 def contact ():
     return render_template('front/help/contact.html')
