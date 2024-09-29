@@ -72,7 +72,16 @@
                
               </ul>
             </li>
-
+            <li class="nav-item dropdown">
+              <a class="nav-link mx-2 dropdown-toggle align-items-center" role="button" id="courses"
+                  data-bs-toggle="dropdown" aria-expanded="false">Category</a>
+              <ul class="dropdown-menu" aria-labelledby="courses">
+                  <li><a href="{{ url_for('category.category_management') }}"
+                          class="dropdown-item">Category Management</a></li>
+                  <li><a href="{{ url_for('category.create_category') }}" class="dropdown-item">Create
+                          Category </a></li>
+              </ul>
+          </li>
             <li class="nav-item">
               <a href="{{url_for('contact')}}" class="nav-link mx-2">contact</a>
             </li>
@@ -123,17 +132,15 @@
         <div class="col-md-4 my-3">
           <h5 class="text-uppercase fw-bold mb-4">Contact us</h5>
           <p><iconify-icon class="social-icon text-primary fs-5 me-2" icon="mdi:location"
-              style="vertical-align:text-bottom"></iconify-icon> <span class="fw-bold">Address: </span> 730 Glenstone Ave 65802,
-              Springfield, US</p>
+            style="vertical-align:text-bottom"></iconify-icon> <span class="fw-bold">Address: </span> 730 Glenstone Ave 65802,
+            Springfield, US</p>
           <p><iconify-icon class="social-icon text-primary fs-5 me-2" icon="solar:phone-bold"
-              style="vertical-align:text-bottom"></iconify-icon> <span class="fw-bold">Phone: </span> (123) 000-321
+            style="vertical-align:text-bottom"></iconify-icon> <span class="fw-bold">Phone: </span> (123) 000-321
           </p>
-          <p><iconify-icon class="social-icon text-primary fs-5 me-2" icon="ic:baseline-email"
-              style="vertical-align:text-bottom"></iconify-icon> <span class="fw-bold">Email: </span>
-              contactoffice@website.com
+          <p><iconify-icon class="social-icon text-primary fs-5 me-2" icon="ic:baseline-email"style="vertical-align:text-bottom"></iconify-icon> <span class="fw-bold">Email: </span>
+            contactoffice@website.com              
           </p>
         </div>
-  <!--        
         <div class="col-md-2 my-3">
           <div class="footer-menu">
             <h5 class="text-uppercase fw-bold mb-4">Links</h5>
@@ -169,7 +176,7 @@
             </ul>
           </div>
         </div>
-  -->
+
       </div>
     </div>
     </div>
