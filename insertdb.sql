@@ -1,6 +1,6 @@
 -- Insert users (including admin and regular users)
 INSERT INTO users (name, login, password, role, status, pic, description, created_at) VALUES
-('Admin User', 'admin', 'admin', '475807cb0a9a78d4dd5feda70279d5df75c6b32fe8488e0e1d647ec643b81cb9', '0', NULL, 'Administrator account', NOW()),
+('Admin User', 'admin', 'admin', 'admin', '0', NULL, 'Administrator account', NOW()),
 ('John Doe', 'john_doe', 'john1234', 'user', '0', NULL, 'Regular user', NOW()),
 ('Jane Smith', 'jane_smith', 'jane1234', 'user', '0', NULL, 'Regular user', NOW());
 
