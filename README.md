@@ -1,11 +1,21 @@
 #  Community Web Application
 
-## Overview
-The project focuses on developing a web-based application designed to promote community service and engagement by organizing and managing events. The application will serve the local community and allow users to seamlessly create, view and register for local events.
+## Introduction
+The Community Event Planner Web Application is designed to support users organize, manage, and participate in their community events. It provides an easy-to-use platform where users can register, create events, view event details, and engage with their local community. This guide will walk you through the main features of the application.
 
 ## Features
 - A web application for managing community events, with roles for admins, users, and guests, each with specific access permissions.
-- Event management with dynamic templates.
+- User Registration and Login: Create an account to access personalized features, such as event creation and management.
+- Event Creation: Users can create new events, set event details (name, location, date, etc.), and share them with the community.
+- Event Registration: View and register for upcoming events.
+- Favorites: Mark events as favorites to easily find them later.
+
+## Getting Start
+Visit the homepage and **register** by filling in your details, then **log in** using your password. Once logged in, you can create events by clicking **Create Event**, filling in event details, and submitting. To view or register for events, go to the **Events** page, select an event, and click **Join**. You can favorite events by clicking the **Favorite** button. Manage your profile by clicking **Profile**, where you can view or edit your information. To log out, simply click **Logout** in the top-right corner. For further assistance, contact support@communityeventplanner.com.
+
+
+
+
 
 ## Project Structure
 
